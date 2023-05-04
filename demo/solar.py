@@ -65,5 +65,5 @@ def display_output(value):
         selected = value['indexes']
         selected = format(json.dumps(selected))
 
-    print('Select rows: {}'.format(selected))
-    return 'Select rows: {}'.format(selected)
+    print(f'Select rows: {selected}')
+    return f'Select rows: {selected}'

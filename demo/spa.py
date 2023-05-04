@@ -98,19 +98,18 @@ class SinglePageApp:
         return self.getItems(self.navitems['right'])    
 
     def navBar(self):
-        navbar = dbc.Navbar(
+        return dbc.Navbar(
             children=[
-                dbc.NavbarBrand(html.Strong('Datatables'), href="https://datatables.net/"),
-
+                dbc.NavbarBrand(
+                    html.Strong('Datatables'), href="https://datatables.net/"
+                ),
                 # Left hand side
-             
                 dbc.NavItem(self.getItemsLeft(), className='navbar-nav mr-auto'),
-
                 # Right hand side
-
-                dbc.NavItem(self.getItemsRight(), className='navbar-nav ml-auto')
-
-
-            ], className="navbar-default",  dark=True, color='secondary',  expand="md" )
-
-        return navbar
+                dbc.NavItem(self.getItemsRight(), className='navbar-nav ml-auto'),
+            ],
+            className="navbar-default",
+            dark=True,
+            color='secondary',
+            expand="md",
+        )

@@ -131,17 +131,15 @@ def table_update(value):
         if action == 'add_row':
             df = df.append(employee_data, ignore_index=True)
 
-        if action == 'delete_row':
-            id = employee_data['id']
-            df = df[df.id != id]
+        elif action == 'delete_row':
+            df = df[df.id != employee_data['id']]
 
-        if action == 'edit_row':
-            id = employee_data['id']
+        elif action == 'edit_row':
             #df.loc[df['id'] == id, list(employee_data.keys())] = list(employee_data.values())
             # df = df[df.id != id]
             # df = df.append(employee_data, ignore_index=True)
             keys, values = zip(*employee_data.items())
-            df.loc[df['id'] == id, keys] = values
+            df.loc[df['id'] == employee_data['id'], keys] = values
 
     table_data = df.to_dict('records')
     return table_data
